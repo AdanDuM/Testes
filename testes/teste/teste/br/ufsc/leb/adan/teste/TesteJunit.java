@@ -7,7 +7,8 @@ import org.junit.Test;
 
 public class TesteJunit {
 	
-	private final int numeroGrande = (int)Math.pow(2, 65);
+	private Double constante = Math.pow(2, 65);
+	private final Integer numeroGrande = constante.intValue();
 
 	@Test
 	public void testaComNull() {
