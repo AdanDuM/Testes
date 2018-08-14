@@ -1,4 +1,4 @@
-package teste.br.ufsc.leb.douglas.calculadora;
+package teste.br.ufsc.leb.douglas.calculadora.excecoes;
 
 public class EstouroDeSomaException extends Exception{
 
