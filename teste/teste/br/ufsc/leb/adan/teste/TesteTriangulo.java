@@ -12,6 +12,24 @@ public class TesteTriangulo {
 	public void criaTrianguloValido() {
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Test
 	public void testaComNull() {
 		assertFalse(Poligonos.isTriangulo(null, 4, 5));
