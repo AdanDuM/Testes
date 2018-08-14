@@ -6,9 +6,9 @@ public abstract class Triangulo {
 	private Integer ladoB;
 	private Integer ladoC;
 	
-	private final Integer tamanhoMaximo = Integer.MAX_VALUE;
+	private static final Integer TAMANHO_MAXIMO = Integer.MAX_VALUE;
 	
-	public <T> Triangulo(Integer ladoA, Integer ladoB, Integer ladoC) {
+	public Triangulo(Integer ladoA, Integer ladoB, Integer ladoC) {
 		this.ladoA = ladoA;
 		this.ladoB = ladoB;
 		this.ladoC = ladoC;
@@ -43,14 +43,7 @@ public abstract class Triangulo {
 	}
 	
 	private Boolean temArgumentoGrande() {
-		if (ladoA > tamanhoMaximo || ladoB > tamanhoMaximo || ladoC > tamanhoMaximo) {
-			return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
-	}
-	
-	private Boolean temDoisLadosMaiorOuIgualAoTerceiro() {
-		if (ladoA + ladoB >= ladoC || ladoB + ladoC >= ladoA || ladoA + ladoC >= ladoB) {
+		if (ladoA > TAMANHO_MAXIMO || ladoB > TAMANHO_MAXIMO || ladoC > TAMANHO_MAXIMO) {
 			return Boolean.TRUE;
 		}
 		return Boolean.FALSE;
@@ -69,7 +62,7 @@ public abstract class Triangulo {
 	}
 
 	public void setLadoB(Integer ladoB) {
-		ladoB = ladoB;
+		this.ladoB = ladoB;
 	}
 
 	public Integer getLadoC() {

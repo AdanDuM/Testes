@@ -1,10 +1,9 @@
 package teste.br.ufsc.leb.douglas;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import teste.br.ufsc.leb.adan.teste.Triangulo;
 
@@ -12,8 +11,7 @@ public class TesteTrianguloEquilatero {
 
 	@Test
 	public void oTriganguloEquilateroNoModoOrientadoObjetos() throws Exception {
-		// Reusando o teu Triangulo -- pode remover o comentario e [teste.br.ufsc.leb.adan.teste.]
-		teste.br.ufsc.leb.adan.teste.Triangulo equilatero = new TrianguloEquilatero(2, 2, 2);
+		Triangulo equilatero = new TrianguloEquilatero(2, 2, 2);
 		assertTrue(equilatero.ehEquilatero());
 	}
 	
@@ -21,30 +19,39 @@ public class TesteTrianguloEquilatero {
 	public void criaTrianguloEquilateroValido() {
 		Triangulo triangulo = new TrianguloEquilatero(3, 3, 3);
 		
-		assertEquals(3, triangulo.getLadoA().intValue());
-		assertEquals(3, triangulo.getLadoB().intValue());
-		assertEquals(3, triangulo.getLadoC().intValue());
+		assertEquals(new Integer(3), triangulo.getLadoA());
+		assertEquals(new Integer(3), triangulo.getLadoB());
+		assertEquals(new Integer(3), triangulo.getLadoC());
 	}
 	
-	@Test
-	public void criaTrianguloEquilateroComPrimeiroArgumentoInvalido() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			Triangulo triangulo = new TrianguloEquilatero(5, 3, 3);
-		});
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloEquilateroComPrimeiroArgumentoZero() {
+		new TrianguloEquilatero(0, 3, 3);
 	}
 	
-	@Test
-	public void criaTrianguloEquilateroComSegundoArgumentoInvalido() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			Triangulo triangulo = new TrianguloEquilatero(3, 5, 3);
-		});
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloEquilateroComSegundoArgumentoZero() {
+		new TrianguloEquilatero(3, 0, 3);
 	}
 	
-	@Test
-	public void criaTrianguloEquilateroComTerceiroArgumentoInvalido() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			Triangulo triangulo = new TrianguloEquilatero(3, 3, 5);
-		});
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloEquilateroComTerceiroArgumentoZero() {
+		new TrianguloEquilatero(3, 3, 0);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloEquilateroComPrimeiroArgumentoGrande() {
+		new TrianguloEquilatero(Integer.MAX_VALUE, 3, 3);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloEquilateroComSegundoArgumentoGrande() {
+		new TrianguloEquilatero(3, Integer.MAX_VALUE, 3);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloEquilateroComTerceiroArgumentoGrande() {
+		new TrianguloEquilatero(3, 3, Integer.MAX_VALUE);
 	}
 
 }

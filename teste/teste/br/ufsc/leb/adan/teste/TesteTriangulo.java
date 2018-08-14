@@ -1,13 +1,16 @@
 package teste.br.ufsc.leb.adan.teste;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class TesteJunit {
+public class TesteTriangulo {
 	
-	private final Integer numeroGrande = Integer.MAX_VALUE;
+	private static final Integer TAMANHO_MAXIMO = Integer.MAX_VALUE;
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void criaTrianguloValido() {
+	}
 
 	@Test
 	public void testaComNull() {
@@ -30,9 +33,9 @@ public class TesteJunit {
 
 	@Test
 	public void testaComNumeroGrande() {
-		assertFalse(Poligonos.isTriangulo(numeroGrande, 4, 5));
-		assertFalse(Poligonos.isTriangulo(3, numeroGrande, 5));
-		assertFalse(Poligonos.isTriangulo(3, 4, numeroGrande));
+		assertFalse(Poligonos.isTriangulo(TAMANHO_MAXIMO, 4, 5));
+		assertFalse(Poligonos.isTriangulo(3, TAMANHO_MAXIMO, 5));
+		assertFalse(Poligonos.isTriangulo(3, 4, TAMANHO_MAXIMO));
 	}
 
 	@Test

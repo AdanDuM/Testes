@@ -6,7 +6,6 @@ public class TrianguloEquilatero extends Triangulo {
 
 	public TrianguloEquilatero(Integer ladoA, Integer ladoB, Integer ladoC) {
 		super(ladoA, ladoB, ladoC);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
