@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class TesteJunit {
+public class TesteTriangulo {
 	
 	private Double constante = Math.pow(2, 65);
 	private final Integer numeroGrande = constante.intValue();
