@@ -1,82 +1,109 @@
 package teste.br.ufsc.leb.adan.teste;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import org.junit.Before;
 import org.junit.Test;
+
+import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTriangulo {
 	
-	private Double constante = Math.pow(2, 65);
-	private final Integer numeroGrande = constante.intValue();
-
-	@Test
-	public void testaComNull() {
-		assertFalse(Poligonos.isTriangulo(null, 4, 5));
-		assertFalse(Poligonos.isTriangulo(3, null, 5));
-		assertFalse(Poligonos.isTriangulo(3, 4, null));
+	private static final Integer TAMANHO_MAXIMO = Integer.MAX_VALUE;
+	
+	private Integer tamanhoNulo;
+	private Integer tamanhoZero;
+	private Integer tamanhoNegativo;
+	private Integer tamanhoMaximo;
+	
+	@Before
+	public void setupVariaveis() {
+		tamanhoNulo = null;
+		tamanhoZero = 0;
+		tamanhoNegativo = -3;
+		tamanhoMaximo = TAMANHO_MAXIMO;
 	}
 	
 	@Test
-	public void testaTudoZeros() throws Exception {
-		assertFalse(Poligonos.isTriangulo(0, 0, 0));		
+	public void criaTrianguloValido() {
+	}	
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoNull_1() throws ExcecaoEntradaInvalida {
+		new Triangulo(tamanhoNulo, 4, 5);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoNull_2() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, tamanhoNulo, 5);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoNull_3() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 4, tamanhoNulo);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoZero() throws Exception {
+		new Triangulo(tamanhoZero, tamanhoZero, tamanhoZero);	
 	}
 
-	@Test
-	public void testaComZero() {
-		assertFalse(Poligonos.isTriangulo(0, 4, 5));
-		assertFalse(Poligonos.isTriangulo(3, 0, 5));
-		assertFalse(Poligonos.isTriangulo(3, 4, 0));
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoZero_1() throws ExcecaoEntradaInvalida {
+		new Triangulo(tamanhoZero, 3, 3);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoZero_2() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, tamanhoZero, 3);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoZero_3() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 3, tamanhoZero);
 	}
 
-	@Test
-	public void testaComNumeroGrande() {
-		assertFalse(Poligonos.isTriangulo(numeroGrande, 4, 5));
-		assertFalse(Poligonos.isTriangulo(3, numeroGrande, 5));
-		assertFalse(Poligonos.isTriangulo(3, 4, numeroGrande));
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoMaximo_1() throws ExcecaoEntradaInvalida {
+		new Triangulo(tamanhoMaximo, 3, 3);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoMaximo_2() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, tamanhoMaximo, 3);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoMaximo_3() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 3, tamanhoMaximo);
 	}
 
-	@Test
-	public void testaComNegativos() {
-		assertFalse(Poligonos.isTriangulo(-3, 4, 5));
-		assertFalse(Poligonos.isTriangulo(3, -4, 5));
-		assertFalse(Poligonos.isTriangulo(3, 4, -5));
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoNegativo_1() throws ExcecaoEntradaInvalida {
+		new Triangulo(tamanhoNegativo, 3, 3);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoNegativo_2() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, tamanhoNegativo, 3);
+	}
+	
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComTamanhoNegativo_3() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 3, tamanhoNegativo);
 	}
 
-	@Test
-	public void testaLadoMenorSomaDeDois() {
-		assertFalse(Poligonos.isTriangulo(1, 4, 2));
-		assertFalse(Poligonos.isTriangulo(2, 1, 4));
-		assertFalse(Poligonos.isTriangulo(4, 2, 1));
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaComLadoMaiorQueSomaDosOutros_1() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 3, 3);
 	}
 
-	@Test
-	public void testaLadoIgualSomaDeDois() {
-		assertFalse(Poligonos.isTriangulo(2, 2, 4));
-		assertFalse(Poligonos.isTriangulo(2, 4, 2));
-		assertFalse(Poligonos.isTriangulo(4, 2, 2));
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaLadoIgualSomaDeDois() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 3, 3);
 	}
 
-	@Test
-	public void testaTriangulosValidos() {
-		assertFalse(Poligonos.isTriangulo(3, 3, 3));
-		assertFalse(Poligonos.isTriangulo(3, 4, 5));
-		assertFalse(Poligonos.isTriangulo(4, 2, 4));
-	}
-
-	@Test
-	public void testaIsoceles() {
-		assertTrue(Poligonos.isIsoceles(4, 2, 4));
-	}
-
-	@Test
-	public void testaEscaleno() {
-		assertTrue(Poligonos.isEscaleno(3, 4, 5));
-	}
-
-	@Test
-	public void testeEquilatero() {
-		assertTrue(Poligonos.isEquilatero(3, 3, 3));
+	@Test(expected = ExcecaoEntradaInvalida.class)
+	public void criaTriangulosValidos() throws ExcecaoEntradaInvalida {
+		new Triangulo(3, 3, 3);
 	}
 
 }
