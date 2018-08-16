@@ -7,8 +7,7 @@ import org.junit.Test;
 
 public class TesteJunit {
 	
-	private Double constante = Math.pow(2, 65);
-	private final Integer numeroGrande = constante.intValue();
+	private final Integer numeroGrande = Integer.MAX_VALUE;
 
 	@Test
 	public void testaComNull() {
@@ -62,21 +61,6 @@ public class TesteJunit {
 		assertFalse(Poligonos.isTriangulo(3, 3, 3));
 		assertFalse(Poligonos.isTriangulo(3, 4, 5));
 		assertFalse(Poligonos.isTriangulo(4, 2, 4));
-	}
-
-	@Test
-	public void testaIsoceles() {
-		assertTrue(Poligonos.isIsoceles(4, 2, 4));
-	}
-
-	@Test
-	public void testaEscaleno() {
-		assertTrue(Poligonos.isEscaleno(3, 4, 5));
-	}
-
-	@Test
-	public void testeEquilatero() {
-		assertTrue(Poligonos.isEquilatero(3, 3, 3));
 	}
 
 }
