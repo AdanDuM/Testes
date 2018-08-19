@@ -18,17 +18,19 @@ public class Calculadora {
 		resultado = operando1 + operando2;
 	}
 
-	public void multiplica(Integer operando1, Integer operando2) {
-		resultado = operando1 * operando2;
-	}
-
 	public void divide(Integer operando1, Integer operando2) throws DivisaoPorZeroException {
 		if (operando2 == 0) {
 			throw new DivisaoPorZeroException();
 		}
 		resultado = operando1 / operando2;
 	}
-	
-	
+
+	public void multiplica(Integer operando1, Integer operando2) {
+		resultado = operando1 * operando2;
+	}
+
+	public void subtrai(Integer operando1, Integer operando2) {
+		resultado = operando1 - operando2;
+	}
 
 }
