@@ -1,6 +1,8 @@
 package teste.br.ufsc.leb.adan.teste;
 
-public abstract class Triangulo {
+import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
+
+public class Triangulo implements Poligonos {
 	
 	private Integer ladoA;
 	private Integer ladoB;
@@ -8,26 +10,43 @@ public abstract class Triangulo {
 	
 	private static final Integer TAMANHO_MAXIMO = Integer.MAX_VALUE;
 	
-	public Triangulo(Integer ladoA, Integer ladoB, Integer ladoC) {
+	public Triangulo(Integer ladoA, Integer ladoB, Integer ladoC) throws ExcecaoEntradaInvalida {
 		this.ladoA = ladoA;
 		this.ladoB = ladoB;
 		this.ladoC = ladoC;
 		if (!ehValido()) {
-			throw new IllegalArgumentException();
+			throw new ExcecaoEntradaInvalida();
 		}
 	}
 	
-	public abstract Boolean ehEquilatero();
-	
-	public abstract Boolean ehIsoceles();
-	
-	public abstract Boolean ehEscaleno();
-
-	private Boolean ehValido() {
-		if (temArgumentoIgualZero() || temArgumentoNegativo() || temArgumentoGrande()) return false;
+	public Boolean ehTriangulo(Integer ladoA, Integer ladoB, Integer ladoC) {
 		return Boolean.TRUE;
 	}
 	
+	public Boolean ehEquilatero() {
+		return Boolean.FALSE;
+	}
+	
+	public Boolean ehIsoceles() {
+		return Boolean.FALSE;
+	}
+	
+	public Boolean ehEscaleno() {
+		return Boolean.FALSE;
+	}
+
+	private Boolean ehValido() {
+		if (temArgumentoNulo() || temArgumentoIgualZero() || temArgumentoNegativo() || temArgumentoGrande()) return false;
+		return Boolean.TRUE;
+	}
+	
+	private Boolean temArgumentoNulo() {
+		if (ladoA == null || ladoB == null || ladoC == null) {
+			return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
+	}
+
 	private Boolean temArgumentoIgualZero() {
 		if (ladoA == 0 || ladoB == 0 || ladoC == 0) {
 			return Boolean.TRUE;
@@ -43,7 +62,14 @@ public abstract class Triangulo {
 	}
 	
 	private Boolean temArgumentoGrande() {
-		if (ladoA > TAMANHO_MAXIMO || ladoB > TAMANHO_MAXIMO || ladoC > TAMANHO_MAXIMO) {
+		if (ladoA >= TAMANHO_MAXIMO || ladoB >= TAMANHO_MAXIMO || ladoC >= TAMANHO_MAXIMO) {
+			return Boolean.TRUE;
+		}
+		return Boolean.FALSE;
+	}
+	
+	private Boolean temDoisLadosMaiorOuIgualAoTerceiro() {
+		if (ladoA + ladoB >= ladoC || ladoB + ladoC >= ladoA || ladoA + ladoC >= ladoB) {
 			return Boolean.TRUE;
 		}
 		return Boolean.FALSE;
@@ -53,24 +79,12 @@ public abstract class Triangulo {
 		return ladoA;
 	}
 
-	public void setLadoA(Integer ladoA) {
-		this.ladoA = ladoA;
-	}
-
 	public Integer getLadoB() {
 		return ladoB;
 	}
 
-	public void setLadoB(Integer ladoB) {
-		this.ladoB = ladoB;
-	}
-
 	public Integer getLadoC() {
 		return ladoC;
-	}
-
-	public void setLadoC(Integer ladoC) {
-		this.ladoC = ladoC;
 	}
 
 }

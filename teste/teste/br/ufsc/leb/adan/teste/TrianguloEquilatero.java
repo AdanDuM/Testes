@@ -1,10 +1,10 @@
-package teste.br.ufsc.leb.douglas;
+package teste.br.ufsc.leb.adan.teste;
 
-import teste.br.ufsc.leb.adan.teste.Triangulo;
+import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TrianguloEquilatero extends Triangulo {
 
-	public TrianguloEquilatero(Integer ladoA, Integer ladoB, Integer ladoC) {
+	public TrianguloEquilatero(Integer ladoA, Integer ladoB, Integer ladoC) throws ExcecaoEntradaInvalida {
 		super(ladoA, ladoB, ladoC);
 	}
 
