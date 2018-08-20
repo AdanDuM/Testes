@@ -4,11 +4,11 @@ import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class Triangulo implements Poligonos {
 	
+	private static final Integer TAMANHO_MAXIMO = Integer.MAX_VALUE;
+	
 	private Integer ladoA;
 	private Integer ladoB;
-	private Integer ladoC;
-	
-	private static final Integer TAMANHO_MAXIMO = Integer.MAX_VALUE;
+	private Integer ladoC;	
 	
 	public Triangulo(Integer ladoA, Integer ladoB, Integer ladoC) throws ExcecaoEntradaInvalida {
 		this.ladoA = ladoA;
@@ -36,67 +36,40 @@ public class Triangulo implements Poligonos {
 	}
 
 	private Boolean ehValido() {
-		if (temArgumentoNulo() || temArgumentoIgualZero() || temArgumentoNegativo() || temArgumentoGrande()) return false;
+		if (temTamanhoDeLadoNulo() || temTamanhoDeLadoIgualZero() || temTamanhoDeLadoNegativo() || !temTamanhoDeLadoValido() || temTamanhoDeLadoMenorQueOutrosDois()) return false;
 		return Boolean.TRUE;
 	}
 	
-	private Boolean temArgumentoNulo() {
-		if (ladoA == null || ladoB == null || ladoC == null) {
-			return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
+	private Boolean temTamanhoDeLadoNulo() {
+		return ladoA == null || ladoB == null || ladoC == null;
 	}
 
-	private Boolean temArgumentoIgualZero() {
-		if (ladoA == 0 || ladoB == 0 || ladoC == 0) {
-			return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
+	private Boolean temTamanhoDeLadoIgualZero() {
+		return ladoA == 0 || ladoB == 0 || ladoC == 0;
 	}
 	
-	private Boolean temArgumentoNegativo() {
-		if (ladoA < 0 || ladoB < 0 || ladoC < 0) {
-			return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
+	private Boolean temTamanhoDeLadoNegativo() {
+		return ladoA < 0 || ladoB < 0 || ladoC < 0;
 	}
 	
-	private Boolean temArgumentoGrande() {
-		if (ladoA >= TAMANHO_MAXIMO || ladoB >= TAMANHO_MAXIMO || ladoC >= TAMANHO_MAXIMO) {
-			return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
+	private Boolean temTamanhoDeLadoValido() {
+		return TAMANHO_MAXIMO < ladoA || TAMANHO_MAXIMO < ladoB || TAMANHO_MAXIMO < ladoC;
 	}
 	
-	private Boolean temDoisLadosMaiorOuIgualAoTerceiro() {
-		if (ladoA + ladoB >= ladoC || ladoB + ladoC >= ladoA || ladoA + ladoC >= ladoB) {
-			return Boolean.TRUE;
-		}
-		return Boolean.FALSE;
+	private Boolean temTamanhoDeLadoMenorQueOutrosDois() {
+		return ladoA < ladoB + ladoC || ladoB < ladoA + ladoC || ladoC < ladoA + ladoB;
 	}
 	
 	public Integer getLadoA() {
 		return ladoA;
 	}
 
-	public void setLadoA(Integer ladoA) {
-		this.ladoA = ladoA;
-	}
-
 	public Integer getLadoB() {
 		return ladoB;
 	}
 
-	public void setLadoB(Integer ladoB) {
-		this.ladoB = ladoB;
-	}
-
 	public Integer getLadoC() {
 		return ladoC;
-	}
-
-	public void setLadoC(Integer ladoC) {
-		this.ladoC = ladoC;
 	}
 
 }
