@@ -3,11 +3,29 @@ package teste.br.ufsc.leb.adan.teste;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTrianguloEquilatero {
+	
+	private Ponto umUm;
+	private Ponto doisDois;
+	private Ponto umTres;
+	private Linha linhaA;
+	private Linha linhaB;
+	private Linha linhaC;
+
+	@Before
+	public void setUp() {
+		umUm = new Ponto(1, 1);
+		doisDois = new Ponto(2, 2);
+		umTres = new Ponto(1, 3);
+		linhaA = new Linha(umUm, doisDois);
+		linhaB = new Linha(doisDois, umTres);
+		linhaC = new Linha(umTres, umUm);
+	}
 
 	@Test
 	public void criaTrianguloEquilateroValido() throws ExcecaoEntradaInvalida {
@@ -20,18 +38,24 @@ public class TesteTrianguloEquilatero {
 	}
 
 	@Test
-	public void oTrianguloDiferentao() throws ExcecaoEntradaInvalida {
-		Ponto umUm = new Ponto(1, 1);
-		Ponto doisDois = new Ponto(2, 2);
-		Ponto umTres = new Ponto(1, 3);
-		Lado a = new Lado(umUm, doisDois);
-		Lado b = new Lado(doisDois, umTres);
-		Lado c = new Lado(umTres, umUm);
-		TrianguloEquilatero umTriangulo = new TrianguloEquilateroComLado(a, b, c);
+	public void criaTrianguloComLinhas_deveCriarComSucesso() throws ExcecaoEntradaInvalida {
+
+		TrianguloEquilatero umTriangulo = new TrianguloEquilateroComLinha(linhaA, linhaB, linhaC);
+		
 		assertTrue(umTriangulo.ehEquilatero());
 	}
+	
+	@Test
+	public void criaTrianguloComLinhas_verificaLinhasDoTriangulo() throws ExcecaoEntradaInvalida {
 
-	@Test(expected = ExcecaoEntradaInvalida.class)
+		TrianguloEquilateroComLinha umTriangulo = new TrianguloEquilateroComLinha(linhaA, linhaB, linhaC);
+
+		assertEquals(linhaA, umTriangulo.obterLinhaA());
+		assertEquals(linhaB, umTriangulo.obterLinhaB());
+		assertEquals(linhaC, umTriangulo.obterLinhaC());
+	}
+
+	@Test
 	public void verificaSeEhEquilatero() throws ExcecaoEntradaInvalida {
 		Triangulo triangulo = new TrianguloEquilatero(3);
 		Boolean equilatero = triangulo.ehEquilatero();
