@@ -11,26 +11,26 @@ public class Calculadora {
 		return resultado;
 	}
 
-	public void soma(Integer operando1, Integer operando2) throws EstouroDeSomaException {
-		if (operando1 == Integer.MAX_VALUE || operando2 == Integer.MAX_VALUE) {
+	public void soma(Integer parcela1, Integer parcela2) throws EstouroDeSomaException {
+		if (parcela1 == Integer.MAX_VALUE || parcela2 == Integer.MAX_VALUE) {
 			throw new EstouroDeSomaException();
 		}
-		resultado = operando1 + operando2;
+		resultado = parcela1 + parcela2;
 	}
 
-	public void divide(Integer operando1, Integer operando2) throws DivisaoPorZeroException {
-		if (operando2 == 0) {
+	public void divide(Integer dividendo, Integer divisor) throws DivisaoPorZeroException {
+		if (divisor == 0) {
 			throw new DivisaoPorZeroException();
 		}
-		resultado = operando1 / operando2;
+		resultado = dividendo / divisor;
 	}
 
-	public void multiplica(Integer operando1, Integer operando2) {
-		resultado = operando1 * operando2;
+	public void multiplica(Integer fator1, Integer fator2) {
+		resultado = fator1 * fator2;
 	}
 
-	public void subtrai(Integer operando1, Integer operando2) {
-		resultado = operando1 - operando2;
+	public void subtrai(Integer minuendo, Integer subtraendo) {
+		resultado = minuendo - subtraendo;
 	}
 
 }
