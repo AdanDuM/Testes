@@ -1,5 +1,6 @@
 package teste.br.ufsc.leb.adan.teste;
 
+import br.ufsc.leb.adan.codigos.Poligonos;
 import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class Triangulo implements Poligonos {
@@ -36,7 +37,8 @@ public class Triangulo implements Poligonos {
 	}
 
 	private Boolean ehValido() {
-		if (temTamanhoDeLadoNulo() || temTamanhoDeLadoIgualZero() || temTamanhoDeLadoNegativo() || !temTamanhoDeLadoValido() || temTamanhoDeLadoMenorQueOutrosDois()) return false;
+		if (temTamanhoDeLadoNulo() || temTamanhoDeLadoIgualZero() || temTamanhoDeLadoNegativo() || 
+				temTamanhoDeLadoMaiorQueLimite() || temTamanhoDeLadoIgualQueSomaDosOutrosDois() || temTamanhoDeLadoMaiorQueSomaDosOutrosDois()) return Boolean.FALSE;
 		return Boolean.TRUE;
 	}
 	
@@ -52,12 +54,16 @@ public class Triangulo implements Poligonos {
 		return ladoA < 0 || ladoB < 0 || ladoC < 0;
 	}
 	
-	private Boolean temTamanhoDeLadoValido() {
+	private Boolean temTamanhoDeLadoMaiorQueLimite() {
 		return TAMANHO_MAXIMO < ladoA || TAMANHO_MAXIMO < ladoB || TAMANHO_MAXIMO < ladoC;
 	}
 	
-	private Boolean temTamanhoDeLadoMenorQueOutrosDois() {
-		return ladoA < ladoB + ladoC || ladoB < ladoA + ladoC || ladoC < ladoA + ladoB;
+	private Boolean temTamanhoDeLadoIgualQueSomaDosOutrosDois() {
+		return ladoA == ladoB + ladoC || ladoB == ladoA + ladoC || ladoC == ladoA + ladoB;
+	}
+	
+	private Boolean temTamanhoDeLadoMaiorQueSomaDosOutrosDois() {
+		return ladoA > ladoB + ladoC || ladoB > ladoA + ladoC || ladoC > ladoA + ladoB;
 	}
 	
 	public Integer getLadoA() {
