@@ -4,8 +4,8 @@ import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TrianguloEquilatero extends Triangulo {
 
-	public TrianguloEquilatero(Integer lado) throws ExcecaoEntradaInvalida {
-		super(lado, lado, lado);
+	public TrianguloEquilatero(Integer comprimento) throws ExcecaoEntradaInvalida {
+		super(comprimento, comprimento,  comprimento);
 	}
 
 	@Override
