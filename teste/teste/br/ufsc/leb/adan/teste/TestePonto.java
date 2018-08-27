@@ -10,11 +10,11 @@ public class TestePonto {
 
 	@Test
 	public void criaPonto() {
-		Double coordenadaX = new Double(10.0f);
-		Double coordenadaY = new Double(15.0f);
+		Float coordenadaX = new Float(10.0f);
+		Float coordenadaY = new Float(15.0f);
 		Ponto ponto = new Ponto(coordenadaX, coordenadaY);
-		assertEquals(coordenadaX, ponto.obterCoordenadaX());
-		assertEquals(coordenadaY, ponto.obterCoordenadaY());
+		assertEquals(coordenadaX, ponto.obterX());
+		assertEquals(coordenadaY, ponto.obterY());
 	}
 
 }

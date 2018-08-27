@@ -3,20 +3,20 @@ package br.ufsc.leb.adan.codigos.formas.geometricas;
 public class Retangulo {
 
 	private Ponto origem;
-	private Double largura;
-	private Double altura;
-	private Double coordenadaX;
-	private Double coordenadaY;
+	private Float largura;
+	private Float altura;
+	private Float x;
+	private Float y;
 
-	public Retangulo(Ponto origem, Double largura, Double altura) {
+	public Retangulo(Ponto origem, Float largura, Float altura) {
 		this.origem = origem;
 		this.largura = largura;
 		this.altura = altura;
 	}
 
-	public Retangulo(Double coordenadaX, Double coordenadaY, Double largura, Double altura) {
-		this.coordenadaX = coordenadaX;
-		this.coordenadaY = coordenadaY;
+	public Retangulo(Float x, Float y, Float largura, Float altura) {
+		this.x = x;
+		this.y = y;
 		this.largura = largura;
 		this.altura = altura;
 	}
@@ -25,20 +25,20 @@ public class Retangulo {
 		return origem;
 	}
 
-	public Double obterLargura() {
+	public Float obterLargura() {
 		return largura;
 	}
 
-	public Double obterAltura() {
+	public Float obterAltura() {
 		return altura;
 	}
 
-	public Double obterCoordenadaX() {
-		return coordenadaX;
+	public Float obterX() {
+		return x;
 	}
 
-	public Double obterCoordenadaY() {
-		return coordenadaY;
+	public Float obterY() {
+		return y;
 	}
 
 }

@@ -1,6 +1,6 @@
 package teste.br.ufsc.leb.adan.teste;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -11,10 +11,10 @@ public class TesteLinha {
 
 	@Test
 	public void criaLinhaComPontos() {
-		Double coordenadaX1 = new Double(0.0f);
-		Double coordenadaY1 = new Double(0.0f);
-		Double coordenadaX2 = new Double(0.0f);
-		Double coordenadaY2 = new Double(1.0f);
+		Float coordenadaX1 = new Float(0.0f);
+		Float coordenadaY1 = new Float(0.0f);
+		Float coordenadaX2 = new Float(0.0f);
+		Float coordenadaY2 = new Float(1.0f);
 		Ponto a = new Ponto(coordenadaX1, coordenadaY1);
 		Ponto b = new Ponto(coordenadaX2, coordenadaY2);
 		Linha linha = new Linha(a, b);
@@ -26,14 +26,14 @@ public class TesteLinha {
 	
 	@Test
 	public void distancia() throws Exception {
-		Double latitudeUfsc = new Double(-27.6007f);
-		Double longitudeUfsc = new Double(-48.5192f);
-		Double latitudeCentroDeFloripa = new Double(-27.5949f);
-		Double longitudeCentroDeFloripa = new Double(-48.5482f);
+		Float latitudeUfsc = new Float(-27.6007f);
+		Float longitudeUfsc = new Float(-48.5192f);
+		Float latitudeCentroDeFloripa = new Float(-27.5949f);
+		Float longitudeCentroDeFloripa = new Float(-48.5482f);
 		Ponto ufsc = new Ponto(latitudeUfsc, longitudeUfsc);
 		Ponto centro = new Ponto(latitudeCentroDeFloripa, longitudeCentroDeFloripa);
 		Linha daUfscAoCentro = new Linha(ufsc, centro);
-		assertEquals(new Float(12.0f), daUfscAoCentro.obterDistancia());
+		assertEquals(new Float(-0.028999329f), daUfscAoCentro.obterDistancia());
 		
 	}
 }

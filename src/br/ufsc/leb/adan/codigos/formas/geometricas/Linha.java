@@ -19,7 +19,7 @@ public class Linha {
 	}
 
 	public Float obterDistancia() {
-		return new Float(b.obterCoordenadaY() - a.obterCoordenadaY());
+		return new Float(b.obterY() - a.obterY());
 	}
 
 }

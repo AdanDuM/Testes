@@ -2,20 +2,20 @@ package br.ufsc.leb.adan.codigos.formas.geometricas;
 
 public class Ponto {
 
-	private Double coordenadaX;
-	private Double coordenadaY;
+	private Float x;
+	private Float y;
 
-	public Ponto(Double coordenadaX, Double coordenadaY) {
-		this.coordenadaX = coordenadaX;
-		this.coordenadaY = coordenadaY;
+	public Ponto(Float x, Float y) {
+		this.x = x;
+		this.y = y;
 	}
 
-	public Double obterCoordenadaX() {
-		return coordenadaX;
+	public Float obterX() {
+		return x;
 	}
 
-	public Double obterCoordenadaY() {
-		return coordenadaY;
+	public Float obterY() {
+		return y;
 	}
 
 }
