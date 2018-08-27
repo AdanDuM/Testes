@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import br.ufsc.leb.adan.codigos.formas.geometricas.Triangulo;
+import br.ufsc.leb.adan.codigos.formas.geometricas.TrianguloEquilatero;
 import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTrianguloEquilatero {
@@ -18,7 +20,7 @@ public class TesteTrianguloEquilatero {
 		assertEquals(new Integer(3), triangulo.getLadoC());
 	}
 	
-	@Test(expected = ExcecaoEntradaInvalida.class)
+	@Test
 	public void verificaSeEhEquilatero() throws ExcecaoEntradaInvalida {
 		Triangulo triangulo = new TrianguloEquilatero(3);
 		Boolean equilatero = triangulo.ehEquilatero();

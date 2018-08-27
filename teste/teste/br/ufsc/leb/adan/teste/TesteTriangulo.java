@@ -3,6 +3,7 @@ package teste.br.ufsc.leb.adan.teste;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.ufsc.leb.adan.codigos.formas.geometricas.Triangulo;
 import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTriangulo {
@@ -89,21 +90,6 @@ public class TesteTriangulo {
 	@Test(expected = ExcecaoEntradaInvalida.class)
 	public void criaComTamanhoNegativo_3() throws ExcecaoEntradaInvalida {
 		new Triangulo(3, 3, tamanhoNegativo);
-	}
-
-	@Test(expected = ExcecaoEntradaInvalida.class)
-	public void criaComLadoMaiorQueSomaDosOutros_1() throws ExcecaoEntradaInvalida {
-		new Triangulo(3, 3, 3);
-	}
-
-	@Test(expected = ExcecaoEntradaInvalida.class)
-	public void criaLadoIgualSomaDeDois() throws ExcecaoEntradaInvalida {
-		new Triangulo(3, 3, 3);
-	}
-
-	@Test(expected = ExcecaoEntradaInvalida.class)
-	public void criaTriangulosValidos() throws ExcecaoEntradaInvalida {
-		new Triangulo(3, 3, 3);
 	}
 
 }

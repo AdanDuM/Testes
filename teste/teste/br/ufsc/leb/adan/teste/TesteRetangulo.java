@@ -5,6 +5,9 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.ufsc.leb.adan.codigos.formas.geometricas.Ponto;
+import br.ufsc.leb.adan.codigos.formas.geometricas.Retangulo;
+
 public class TesteRetangulo {
 	
 	private Double coordenadaX;

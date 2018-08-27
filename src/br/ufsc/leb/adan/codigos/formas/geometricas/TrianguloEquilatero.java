@@ -1,4 +1,4 @@
-package teste.br.ufsc.leb.adan.teste;
+package br.ufsc.leb.adan.codigos.formas.geometricas;
 
 import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
 

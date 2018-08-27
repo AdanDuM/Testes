@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import br.ufsc.leb.adan.codigos.formas.geometricas.Ponto;
+
 public class TestePonto {
 
 	@Test
