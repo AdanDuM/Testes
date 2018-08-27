@@ -19,7 +19,15 @@ public class Linha {
 	}
 
 	public Float obterDistancia() {
-		return new Float(b.obterY() - a.obterY());
+		Float diferencaX = b.obterX() - a.obterX();
+		Float diferencaY = b.obterY() - a.obterY();
+		if (a.obterX().equals(b.obterX())) {
+			return Math.abs(diferencaY);
+		}
+		if (a.obterY().equals(b.obterY())) {
+			return Math.abs(diferencaX);
+		}
+		return new Float(Math.abs(Math.sqrt(Math.pow(diferencaX, 2) + Math.pow(diferencaY, 2))));
 	}
 
 }
