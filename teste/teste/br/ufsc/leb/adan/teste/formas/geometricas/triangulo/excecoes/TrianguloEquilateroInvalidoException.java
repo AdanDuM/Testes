@@ -1,4 +1,4 @@
-package teste.br.ufsc.leb.adan.teste.triangulo.excecoes;
+package teste.br.ufsc.leb.adan.teste.formas.geometricas.triangulo.excecoes;
 
 public class TrianguloEquilateroInvalidoException extends Exception {
 

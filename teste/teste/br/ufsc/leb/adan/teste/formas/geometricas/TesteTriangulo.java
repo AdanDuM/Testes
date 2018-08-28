@@ -1,10 +1,10 @@
-package teste.br.ufsc.leb.adan.teste;
+package teste.br.ufsc.leb.adan.teste.formas.geometricas;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import br.ufsc.leb.adan.codigos.formas.geometricas.Triangulo;
-import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
+import teste.br.ufsc.leb.adan.teste.formas.geometricas.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTriangulo {
 	

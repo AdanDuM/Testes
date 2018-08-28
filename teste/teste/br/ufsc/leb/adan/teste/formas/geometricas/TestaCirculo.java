@@ -1,4 +1,4 @@
-package teste.br.ufsc.leb.adan.teste;
+package teste.br.ufsc.leb.adan.teste.formas.geometricas;
 
 import static org.junit.Assert.assertEquals;
 

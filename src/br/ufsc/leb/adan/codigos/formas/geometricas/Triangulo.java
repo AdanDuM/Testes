@@ -1,7 +1,7 @@
 package br.ufsc.leb.adan.codigos.formas.geometricas;
 
 import br.ufsc.leb.adan.codigos.Poligonos;
-import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
+import teste.br.ufsc.leb.adan.teste.formas.geometricas.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class Triangulo implements Poligonos {
 	

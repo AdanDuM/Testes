@@ -32,13 +32,6 @@ public class TesteCalculadora {
 	}
 
 	@Test
-	public void obterResultadoSomaUmComDois() throws Exception {
-		calculadora.soma(um, dois);
-		Integer resultado = calculadora.obterResultado();
-		assertEquals(new Integer(3), resultado);
-	}
-
-	@Test
 	public void obterResultadoDivisao() throws Exception {
 		calculadora.divide(dois, um);
 		Integer resultado = calculadora.obterResultado();

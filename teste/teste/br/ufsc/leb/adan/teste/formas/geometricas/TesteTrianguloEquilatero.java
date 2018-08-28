@@ -1,4 +1,4 @@
-package teste.br.ufsc.leb.adan.teste;
+package teste.br.ufsc.leb.adan.teste.formas.geometricas;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -10,7 +10,7 @@ import br.ufsc.leb.adan.codigos.formas.geometricas.Linha;
 import br.ufsc.leb.adan.codigos.formas.geometricas.Ponto;
 import br.ufsc.leb.adan.codigos.formas.geometricas.Triangulo;
 import br.ufsc.leb.adan.codigos.formas.geometricas.TrianguloEquilatero;
-import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
+import teste.br.ufsc.leb.adan.teste.formas.geometricas.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTrianguloEquilatero {
 	
