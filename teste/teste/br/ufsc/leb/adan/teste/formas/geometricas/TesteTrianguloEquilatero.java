@@ -1,4 +1,4 @@
-package teste.br.ufsc.leb.adan.teste;
+package teste.br.ufsc.leb.adan.teste.formas.geometricas;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -6,7 +6,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
+import br.ufsc.leb.adan.codigos.formas.geometricas.Linha;
+import br.ufsc.leb.adan.codigos.formas.geometricas.Ponto;
+import br.ufsc.leb.adan.codigos.formas.geometricas.Triangulo;
+import br.ufsc.leb.adan.codigos.formas.geometricas.TrianguloEquilatero;
+import teste.br.ufsc.leb.adan.teste.formas.geometricas.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TesteTrianguloEquilatero {
 	
@@ -19,9 +23,9 @@ public class TesteTrianguloEquilatero {
 
 	@Before
 	public void setUp() {
-		umUm = new Ponto(1, 1);
-		doisDois = new Ponto(2, 2);
-		umTres = new Ponto(1, 3);
+		umUm = new Ponto(new Float(1.0f), new Float(1.0f));
+		doisDois = new Ponto(new Float(2.0f), new Float(2.0f));
+		umTres = new Ponto(new Float(1.0f), new Float(3.0f));
 		linhaA = new Linha(umUm, doisDois);
 		linhaB = new Linha(doisDois, umTres);
 		linhaC = new Linha(umTres, umUm);
@@ -44,16 +48,7 @@ public class TesteTrianguloEquilatero {
 		
 		assertTrue(umTriangulo.ehEquilatero());
 	}
-	
-	@Test
-	public void criaTrianguloComLinhas_verificaLinhasDoTriangulo() throws ExcecaoEntradaInvalida {
 
-		TrianguloEquilateroComLinha umTriangulo = new TrianguloEquilateroComLinha(linhaA, linhaB, linhaC);
-
-		assertEquals(linhaA, umTriangulo.obterLinhaA());
-		assertEquals(linhaB, umTriangulo.obterLinhaB());
-		assertEquals(linhaC, umTriangulo.obterLinhaC());
-	}
 
 	@Test
 	public void verificaSeEhEquilatero() throws ExcecaoEntradaInvalida {

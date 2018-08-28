@@ -1,6 +1,8 @@
-package teste.br.ufsc.leb.adan.teste;
+package teste.br.ufsc.leb.adan.teste.formas.geometricas;
 
-import teste.br.ufsc.leb.adan.teste.triangulo.excecoes.ExcecaoEntradaInvalida;
+import br.ufsc.leb.adan.codigos.formas.geometricas.Linha;
+import br.ufsc.leb.adan.codigos.formas.geometricas.TrianguloEquilatero;
+import teste.br.ufsc.leb.adan.teste.formas.geometricas.triangulo.excecoes.ExcecaoEntradaInvalida;
 
 public class TrianguloEquilateroComLinha extends TrianguloEquilatero {
 	
@@ -9,7 +11,7 @@ public class TrianguloEquilateroComLinha extends TrianguloEquilatero {
 	private Linha c;
 
 	public TrianguloEquilateroComLinha(Linha a, Linha b, Linha c) throws ExcecaoEntradaInvalida {
-		super(a.obterTamanho());
+		super(3);
 		this.a = a;
 		this.b = b;
 		this.c = c;
